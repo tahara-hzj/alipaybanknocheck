@@ -1,0 +1,31 @@
+CREATE TABLE `y_user_bank` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `bank_number` varchar(20) DEFAULT NULL COMMENT '银行卡号',
+  `bank_name` varchar(20) DEFAULT NULL COMMENT '银行名称',
+  `user_id` int(10) DEFAULT NULL,
+  `user_name` varchar(5) DEFAULT NULL COMMENT '用户真实姓名',
+  `bank_user_tel` varchar(11) DEFAULT NULL COMMENT '预留电话',
+  `del_status` int(1) DEFAULT '0',
+  `time` timestamp NULL DEFAULT NULL,
+  `set_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `y_user` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(11) DEFAULT NULL,
+  `user_url` varchar(60) DEFAULT NULL,
+  `user_tel` varchar(11) DEFAULT NULL,
+  `user_password` varchar(32) DEFAULT NULL,
+  `user_sex` varchar(1) DEFAULT NULL,
+  `open_id` varchar(32) DEFAULT NULL,
+  `work_status` int(1) DEFAULT NULL COMMENT '工作状态',
+  `work_type` varchar(8) DEFAULT NULL COMMENT '工作类型',
+  `work_address` varchar(32) DEFAULT NULL COMMENT '在职公司',
+  `role` int(1) DEFAULT '0' COMMENT '0普通员工1直营店主2加盟店主3业务员4驻厂',
+  `lend_money` decimal(10,2) DEFAULT '0.00' COMMENT '可借金额',
+  `del_status` int(1) DEFAULT '0' COMMENT '是否有效0有效1无效',
+  `time` timestamp NULL DEFAULT NULL COMMENT '生成时间',
+  `set_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
